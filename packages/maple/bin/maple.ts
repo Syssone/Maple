@@ -37,7 +37,7 @@ const getLocalScript =
   (...args: any) => {
     checkCwdIsmapleApp(name);
 
-    const cmdPath = resolveCwd.silent(`@maple/maple/lib/commands/${name}`);
+    const cmdPath = resolveCwd.silent(`@maple/maple/src/lib/commands/${name}`);
     if (!cmdPath) {
       console.log(
         `Error loading the local ${chalk.yellow(
@@ -81,5 +81,10 @@ program
     );
     process.exit(0);
   });
+
+program
+  .command('start')
+  .description('Start your Maple application')
+  .action(getLocalScript('start'));
 
 program.parseAsync(process.argv);

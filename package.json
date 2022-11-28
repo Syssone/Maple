@@ -6,6 +6,7 @@
     "postinstall": "husky install",
     "maple": "nx serve maple",
     "build:maple": "nx build maple",
+    "publish:maple": "nx publish maple 0.0.1",
     "format": "prettier \"**/src/**/*.{ts,tsx}\" --ignore-path ./.prettierignore --write && git status",
     "lint": "nx workspace-lint && nx affected:lint && eslint --fix"
   },

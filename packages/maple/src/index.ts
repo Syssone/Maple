@@ -1,5 +1,2 @@
-import { Maple } from './lib/maple';
-
-const maple = new Maple({});
-
-maple.start();
+import { maple } from './lib/maple';
+maple({ port: 3000 }).start();
