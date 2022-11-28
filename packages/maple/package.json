@@ -1,5 +1,11 @@
 {
   "name": "@maple/maple",
   "version": "0.0.1",
-  "type": "commonjs"
+  "type": "commonjs",
+  "bin": {
+    "maple": "./bin/maple.js"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.190"
+  }
 }
