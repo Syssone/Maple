@@ -1,22 +1,38 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import * as express from 'express';
 import { Express, Request, Response } from 'express';
+import resolveCwd = require('resolve-cwd');
+import { Logger } from '@maple/logger';
 
 export class Maple {
   constructor(_opt: Record<string, unknown> = {}) {
-    // console.log('Maple');
+    Logger('Maple');
   }
 
   start() {
     const app: Express = express();
     const port = 3000;
+    const buildPath = resolveCwd('@maple/admin/admin-ui/index.html').replace(
+      'index.html',
+      ''
+    );
 
+    app.use('/admin', express.static(buildPath));
+
+    const rootRouter = express.Router();
+    /*
+     * all your other routes go here
+     */
+
+    rootRouter.get('(/*)?', async (req, res, next) => {
+      res.sendFile(resolveCwd('@maple/admin/admin-ui/index.html'));
+    });
+    app.use('/admin', rootRouter);
     app.get('/', (_req: Request, res: Response) => {
       res.send('Maple!');
     });
-
     app.listen(port, () => {
-      console.log(`Maple listening on port ${port}`);
+      Logger(`Maple listening on port ${port}`);
     });
   }
 }

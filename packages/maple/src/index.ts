@@ -1,6 +1,6 @@
 import { maple } from './lib/maple';
-import {} from '@maple/utils';
 import resolveCwd = require('resolve-cwd');
+import { Logger } from '@maple/logger';
 
-console.log(resolveCwd('@maple/utils/index.html'));
+Logger(resolveCwd('@maple/utils'));
 maple({ port: 3000 }).start();

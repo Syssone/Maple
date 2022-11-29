@@ -16,7 +16,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@maple/admin": ["packages/admin/admin/src/index.ts"],
       "@maple/database": ["packages/database/src/index.ts"],
+      "@maple/logger": ["packages/logger/src/index.ts"],
       "@maple/maple": ["packages/maple/src/index.ts"],
       "@maple/utils": ["packages/utils/src/index.ts"]
     }

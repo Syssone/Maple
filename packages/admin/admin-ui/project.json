@@ -1,0 +1,84 @@
+{
+  "name": "admin-admin-ui",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/admin/admin-ui/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/packages/admin/admin-ui",
+        "index": "packages/admin/admin-ui/src/index.html",
+        "baseHref": "/admin/",
+        "main": "packages/admin/admin-ui/src/main.tsx",
+        "polyfills": "packages/admin/admin-ui/src/polyfills.ts",
+        "tsConfig": "packages/admin/admin-ui/tsconfig.app.json",
+        "assets": [
+          "packages/admin/admin-ui/src/favicon.ico",
+          "packages/admin/admin-ui/src/assets"
+        ],
+        "styles": ["packages/admin/admin-ui/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "packages/admin/admin-ui/src/environments/environment.ts",
+              "with": "packages/admin/admin-ui/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/webpack:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "admin-admin-ui:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "admin-admin-ui:build:development"
+        },
+        "production": {
+          "buildTarget": "admin-admin-ui:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/admin/admin-ui/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/admin/admin-ui/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
