@@ -11,7 +11,7 @@ const program = new Command();
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const packageJSON = require('../package.json');
 
-const checkCwdIsmapleApp = (name: any) => {
+const checkCwdIsmapleApp = (name: string) => {
   const logErrorAndExit = () => {
     console.log(
       `You need to run ${chalk.yellow(
@@ -33,7 +33,8 @@ const checkCwdIsmapleApp = (name: any) => {
 };
 
 const getLocalScript =
-  (name: any) =>
+  (name: string) =>
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (...args: any) => {
     checkCwdIsmapleApp(name);
 

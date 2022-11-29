@@ -6,6 +6,15 @@
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "rules": {
+        "@typescript-eslint/ban-types": [
+          "error",
+          {
+            "extendDefaults": true,
+            "types": {
+              "{}": false
+            }
+          }
+        ],
         "@nrwl/nx/enforce-module-boundaries": [
           "error",
           {
@@ -36,17 +45,7 @@
       "env": {
         "jest": true
       },
-      "rules": {
-        "@typescript-eslint/ban-types": [
-          "error",
-          {
-            "extendDefaults": true,
-            "types": {
-              "{}": false
-            }
-          }
-        ]
-      }
+      "rules": {}
     }
   ]
 }
