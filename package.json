@@ -8,19 +8,30 @@
         "dist"
       ],
       "extensions": "js,html,css,jsx,ts",
-      "quiet": false
+      "quiet": true
+    },
+    "start": {
+      "patterns": [
+        "src",
+        "test",
+        "dist"
+      ],
+      "extensions": "js,html,css,jsx,ts",
+      "quiet": true
     }
   },
   "scripts": {
     "postinstall": "husky install",
     "maple": "yarn build && yarn copy && yarn start",
-    "maple:dev": "npm-run-all --parallel build:watch watch:copy start",
-    "maple:dev:admin": "npm-run-all --parallel build:watch watch:copy start",
+    "maple:dev:core": "npm-run-all --parallel build:maple:watch watch:copy watch:start",
+    "maple:dev:admin": "npm-run-all --parallel build:watch watch:copy watch:start",
     "start": "nx serve maple --watch",
     "watch:copy": "npm-watch copy",
+    "watch:start": "npm-watch start",
     "copy": "cp -a ./dist/packages/ node_modules/@maple/",
     "build": "nx run-many --target=build",
     "build:watch": "nx run-many --target=build --watch",
+    "build:maple:watch": "nx build maple --watch",
     "build:maple": "nx build maple && cp -a ./dist/packages/ node_modules/@maple/",
     "publish:maple": "nx publish maple 0.0.1",
     "format": "prettier \"**/src/**/*.{ts,tsx}\" --ignore-path ./.prettierignore --write && git status",
