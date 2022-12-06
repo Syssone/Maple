@@ -45,11 +45,14 @@
     "esm": "^3.2.25",
     "express": "^4.18.2",
     "lodash": "^4.17.21",
+    "mongodb": "^3.6.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "reflect-metadata": "^0.1.13",
     "regenerator-runtime": "0.13.7",
     "resolve-cwd": "^3.0.0",
     "tslib": "^2.3.0",
+    "typeorm": "^0.3.11",
     "winston": "^3.8.2"
   },
   "devDependencies": {
