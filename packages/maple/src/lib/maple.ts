@@ -24,13 +24,6 @@ export class Maple {
     const app: Express = express();
     const port = 3000;
     await this.connect();
-    const userRepository = MapleDB.getRepository(User);
-
-    const user = new User();
-    user.firstName = 'Timber1';
-    user.lastName = 'Saw';
-    user.age = 25;
-    await userRepository.save(user);
 
     const buildPath = resolveCwd('@maple/admin/admin-ui/index.html').replace(
       'index.html',
