@@ -1,25 +1,8 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  ObjectIdColumn,
-  ObjectID,
-} from 'typeorm';
+import { Entity, Property } from '@mikro-orm/core';
+import { BaseEntity } from './base';
 
 @Entity()
-export class User {
-  @ObjectIdColumn({})
-  id: ObjectID | undefined;
-
-  @PrimaryGeneratedColumn('uuid')
-  uid: string | undefined;
-
-  @Column()
-  firstName: string | undefined;
-
-  @Column()
-  lastName: string | undefined;
-
-  @Column()
-  age: number | undefined;
+export class User extends BaseEntity {
+  @Property()
+  title: string;
 }

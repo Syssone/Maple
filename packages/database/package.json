@@ -1,5 +1,9 @@
 {
   "name": "@maple/database",
   "version": "0.0.1",
-  "type": "commonjs"
+  "type": "commonjs",
+  "dependencies": {
+    "@mikro-orm/core": "^5.5.3",
+    "@mikro-orm/mongodb": "^5.5.3"
+  }
 }

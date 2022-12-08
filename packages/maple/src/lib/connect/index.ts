@@ -1,10 +1,6 @@
-import {
-  DataSource,
-  MapleDatabase,
-  MapleDataBaseOption,
-} from '@maple/database';
-export let MapleDB: DataSource;
+import { MapleDatabase, MapleDataBaseOption, MikroORM } from '@maple/database';
+export let MapleDB: MikroORM;
 export const connectDB = async (opt?: MapleDataBaseOption) => {
-  MapleDB = MapleDatabase(opt);
-  await MapleDB.initialize();
+  MapleDB = await MapleDatabase(opt);
+  await MapleDB.getSchemaGenerator().createSchema();
 };

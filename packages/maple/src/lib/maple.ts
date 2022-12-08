@@ -25,6 +25,13 @@ export class Maple {
     const port = 3000;
     await this.connect();
 
+    const userRepository = MapleDB.em.getRepository(User);
+    const user = new User();
+    user.title = 'Timber1';
+
+    await userRepository.create(user);
+    await userRepository.persistAndFlush(user);
+
     const buildPath = resolveCwd('@maple/admin/admin-ui/index.html').replace(
       'index.html',
       ''
