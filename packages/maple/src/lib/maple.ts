@@ -8,7 +8,7 @@ import {} from '@maple/utils';
 
 export class Maple {
   constructor(_opt: Record<string, unknown> = {}) {
-    createLogger({}).log('info', 'Maple starting');
+    createLogger({}).log('INFO', 'Maple starting');
   }
 
   start() {
