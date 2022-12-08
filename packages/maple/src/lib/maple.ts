@@ -2,11 +2,13 @@
 import * as express from 'express';
 import { Express, Request, Response } from 'express';
 import resolveCwd = require('resolve-cwd');
-import { Logger } from '@maple/logger';
+import { createLogger } from '@maple/logger';
+import {} from '@maple/database';
+import {} from '@maple/utils';
 
 export class Maple {
   constructor(_opt: Record<string, unknown> = {}) {
-    Logger('Maple');
+    createLogger({}).log('INFO', 'Maple starting');
   }
 
   start() {
@@ -32,7 +34,7 @@ export class Maple {
       res.send('Maple!');
     });
     app.listen(port, () => {
-      Logger(`Maple listening on port ${port}`);
+      createLogger({}).log('info', `Maple listening on port ${port}`);
     });
   }
 }

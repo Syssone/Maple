@@ -15,6 +15,7 @@
     "postinstall": "husky install",
     "maple": "yarn build && yarn copy && yarn start",
     "maple:dev": "npm-run-all --parallel build:watch watch:copy start",
+    "maple:dev:admin": "npm-run-all --parallel build:watch watch:copy start",
     "start": "nx serve maple --watch",
     "watch:copy": "npm-watch copy",
     "copy": "cp -a ./dist/packages/ node_modules/@maple/",
@@ -37,7 +38,8 @@
     "react-dom": "18.2.0",
     "regenerator-runtime": "0.13.7",
     "resolve-cwd": "^3.0.0",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "winston": "^3.8.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.3.0",
