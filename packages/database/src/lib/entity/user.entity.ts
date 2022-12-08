@@ -4,5 +4,5 @@ import { BaseEntity } from './base';
 @Entity()
 export class User extends BaseEntity {
   @Property()
-  title: string;
+  title!: string;
 }
